@@ -58,133 +58,133 @@ $grid = [
                     </tr>
                     <tr>
                         <td>A</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
-                        <td onclick="myFunction()">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>B</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>C</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>D</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>E</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>F</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>G</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>H</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>I</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
                     <tr>
                         <td>J</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
+                        <td class="case" onclick="myFunction(this)">&nbsp;</td>
                     </tr>
 
                 </tbody>
@@ -196,9 +196,9 @@ $grid = [
             ❌ Fin de partie (RESET)
         </button>
     </form>
-    <script>myFunction(){
-            document.td.style.backgroundColor = "lightblue" // document : getbyid 
-        };</script>
+    <script>function myFunction(cell) {
+            cell.style.backgroundColor = "lightblue";
+        }</script>
 </body>
 
 </html>
