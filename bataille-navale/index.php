@@ -48,10 +48,12 @@ header('refresh:5');
 
 
 
-if ($etat["j1"] !== null && $etat["j2"] !== null) {
+if ($etat["j1"] !== null && $etat["j2"] !== null && !($etat["j1"]==$etat["j2"])) {
 
   header('Location: game.php');
   exit;
+}else if ($etat["j1"]!==null && $etat["j1"] ==$etat["j2"]){
+  echo "<p style ='color:red;'>Vous ne pouvez pas séléctionner les 2 joueurs sur une seule et même session.</p>";
 }
 
 
