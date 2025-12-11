@@ -26,9 +26,9 @@ if (isset($_POST["cell"])) {
   }
 
   $updateCase = "
-        UPDATE $player
-        SET checked = 1
-        WHERE idgrid = :cell";
+            UPDATE $player
+            SET checked = 1
+            WHERE idgrid = :cell";
   $req = $sql->db->prepare($updateCase);
   $req->execute(['cell' => $cell]);
 

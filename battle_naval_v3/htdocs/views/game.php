@@ -21,6 +21,11 @@ $req = $sql->db->prepare($query);
 $req->execute();
 $rows = $req->fetchAll(PDO::FETCH_ASSOC);
 
+$countQuery = "SELECT SUM(type)FROM bateaux";
+$countReq = $sql->db->prepare($countQuery);
+$countReq->execute();
+$totalNeededHits = round((int)$countReq->fetchColumn()/2);
+
 $colsPerRow = 10;
 $count = 0;
 ?>
@@ -69,8 +74,6 @@ $count = 0;
         <p>9</p>
         <p>10</p>
       </div>
-
-      <!-- Grille de jeu -->
       <div class="container text-center">
         <?php
         for ($i = 0; $i < count($rows); $i += $colsPerRow) {
@@ -83,8 +86,8 @@ $count = 0;
               if ($case['checked'] == 1 && $case['boat'] > 0) {
                 $color = 'red';
                 $count++;
-                if ($count == 17) {
-                  echo "<h1 style='color:white; text-align:center; margin-bottom:20px;'>Vous avez gagné !</h1>";
+                if ($count == $totalNeededHits) {
+                  $_SESSION['message']="Vous avez gagné !<br> <br> Tous les bateaux adverses <br> ont été coulé !";
                 }
               }
 
