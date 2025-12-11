@@ -4,19 +4,27 @@ include('./sql-connect.php');
 
 if (isset($_POST["cell"])) {
   $sql = new SqlConnect();
+  $player = ($_SESSION["role"] === 'joueur1') ? 'joueur2' : 'joueur1';
 
-  $player = $_SESSION["role"] === 'joueur1' ?  'joueur2' : 'joueur1';
-  var_dump($player);
-  $query = '
-    UPDATE '.$player.'
-    SET checked = CASE WHEN checked = 0 THEN 1 ELSE 0 END
-    WHERE idgrid = :cell;
-  ';
+  $checkQuery = "SELECT checked FROM $player WHERE idgrid = :cell";
+  $checkReq = $sql->db->prepare($checkQuery);
+  $checkReq->execute(['cell' => $_POST["cell"]]);
+  $current = $checkReq->fetch(PDO::FETCH_ASSOC);
 
-  $req = $sql->db->prepare($query);
-  $req->execute(['cell' => $_POST["cell"]]);
+  if ($current && $current['checked'] == 1) {
+    header("Location: ../index.php");
+    exit;
+  }
+
+  $updateQuery = "
+        UPDATE $player
+        SET checked = 1
+        WHERE idgrid = :cell
+    ";
+
+  $updateReq = $sql->db->prepare($updateQuery);
+  $updateReq->execute(['cell' => $_POST["cell"]]);
 
   header("Location: ../index.php");
-
   exit;
 }

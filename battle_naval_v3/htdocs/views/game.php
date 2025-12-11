@@ -5,7 +5,7 @@ ini_set('displa_startup_errors', 1);
 error_reporting(E_ALL);
 
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
 
 include(__DIR__ . '/../scripts/sql-connect.php');
@@ -35,7 +35,7 @@ $colsPerRow = 10;
 </head>
 
 <body>
-  <div class="container text-center">
+  <div class="container text-center" style="margin-top:5%; margin-bottom:5%;">
     <?php
     for ($i = 0; $i < count($rows); $i += $colsPerRow) {
       echo '<div class="row">';
@@ -48,10 +48,13 @@ $colsPerRow = 10;
           }
 
           $idgrid = $case['idgrid'];
+          $isChecked = $case['checked'] == 1;
 
           echo '<div class="col">';
           echo '<form method="post" action="/battle_naval_v3/htdocs/scripts/click_case.php">';
-          echo '<button type="submit" name="cell" value="' . $idgrid . '" style="width:30px; height:30px; background-color:' . $color . ';"></button>';
+          
+          $disabled = $isChecked ? 'disabled' : '';
+          echo '<button type="submit" name="cell" value="' . $idgrid . '" style="width:30px; height:30px; background-color:' . $color . ';' . $disabled . '>;"></button>';
           echo '</form>';
           echo '</div>';
         }
