@@ -16,6 +16,14 @@ if (isset($_POST["cell"])) {
     exit;
   }
 
+  $otherPlayer = ($_SESSION["role"]==='joueur1') ? 'joueur1' : 'joueur2';
+
+  $isBoatQuery = "
+        SELECT idboat FROM ".$otherPlayer." 
+        WHERE idgrid=".$idgrid;
+
+  $isBoatReq = $sql->db->prepare($isBoatQuery);
+
   $updateQuery = "
         UPDATE $player
         SET checked = 1
