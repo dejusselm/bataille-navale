@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+h2 strong {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+body>div:not(.game-wrapper):not(.indice_l_c):not(.grid-with-col-numbers) {
+  max-width: 500px;
+  margin: 10px auto;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.buttons button,
+form>button[name="reset_total"] {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.buttons button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.buttons button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.game-wrapper {
+  max-width: 450px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.repere_ligne {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  margin-bottom: 5px;
+  flex-wrap: nowrap;
+}
+
+.corner-space {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.repere_ligne p {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+
+.grid-with-col-numbers {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+
+.repere_colonne {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.repere_colonne p {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+
+.game-wrapper .container.text-center {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.game-wrapper .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.game-wrapper .col {
+  padding: 0;
+  margin-right: 2px;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.game-wrapper .col:last-child {
+  margin-right: 0;
+}
+
+.game-wrapper .col form {
+  margin: 0;
+}
+
+.game-wrapper .col button[name="cell"] {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.game-wrapper .col button[name="cell"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #fff;
+}
+
+.game-wrapper .col button[name="cell"]:active {
+  transform: scale(0.95);
+}
+
+form[action*="reset_total.php"] {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button[name="reset_total"] {
+  background: linear-gradient(135deg, #5db5fe 0%, #7c57f5 100%);
+  color: white;
+}
+
+button[name="reset_total"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.5);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .buttons button {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .game-wrapper {
+    padding: 15px;
+  }
+}
