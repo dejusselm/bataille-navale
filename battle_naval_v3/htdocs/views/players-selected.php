@@ -21,7 +21,6 @@ if (isset($_POST["joueur2"])) {
 }
 
 $role = $_SESSION["role"] ?? "Aucun rôle";
-
 ?>
 
 <!DOCTYPE html>
@@ -30,17 +29,20 @@ $role = $_SESSION["role"] ?? "Aucun rôle";
 <head>
   <meta charset="UTF-8">
   <title>Joueur 1 / Joueur 2</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <h1>Connexion aux rôles</h1>
   <h2>Votre rôle actuel : <strong><?= $role ?></strong></h2>
-  <p>
-    Joueur 1 : <?= $etat["j1"] ? "🟢 Occupé" : "🔴 Libre" ?><br>
+  <div>
+    Joueur 1 : <?= $etat["j1"] ? "🟢 Occupé" : "🔴 Libre" ?>
+  </div>
+  <div>
     Joueur 2 : <?= $etat["j2"] ? "🟢 Occupé" : "🔴 Libre" ?>
-  </p>
+  </div>
 
-  <form method="post">
+  <form method="post" class="buttons">
     <button type="submit" name="joueur1" <?= $etat["j1"] !== null ? "disabled" : "" ?>>
       🎮 Devenir Joueur 1
     </button>

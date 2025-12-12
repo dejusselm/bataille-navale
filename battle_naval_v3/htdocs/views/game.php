@@ -1,11 +1,14 @@
 <?php
-
 ini_set('display_errors', 1);
-ini_set('displa_startup_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
+}
+
+if (!isset($_SESSION['message'])) {
+  $_SESSION['message'] = 'Cliquez sur une case pour commencer';
 }
 
 include(__DIR__ . '/../scripts/sql-connect.php');
@@ -18,7 +21,13 @@ $req = $sql->db->prepare($query);
 $req->execute();
 $rows = $req->fetchAll(PDO::FETCH_ASSOC);
 
+$countQuery = "SELECT SUM(type)FROM bateaux";
+$countReq = $sql->db->prepare($countQuery);
+$countReq->execute();
+$totalNeededHits = round((int) $countReq->fetchColumn() / 2);
+
 $colsPerRow = 10;
+$count = 0;
 ?>
 
 <!DOCTYPE html>
@@ -32,42 +41,112 @@ $colsPerRow = 10;
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-  <div class="container text-center" style="margin-top:5%; margin-bottom:5%;">
-    <?php
-    for ($i = 0; $i < count($rows); $i += $colsPerRow) {
-      echo '<div class="row">';
-      for ($j = 0; $j < $colsPerRow; $j++) {
-        if (isset($rows[$i + $j])) {
-          $case = $rows[$i + $j];
-          $color = $case['checked'] == 1 ? 'blue' : 'grey';
-          if ($case['checked'] == 1 && $case['boat'] > 0) {
-            $color = 'red';
+<body class="body_game">
+
+  <div class="game-wrapper">
+    <div class="repere_ligne">
+      <div class="corner-space"></div>
+      <p>A</p>
+      <p>B</p>
+      <p>C</p>
+      <p>D</p>
+      <p>E</p>
+      <p>F</p>
+      <p>G</p>
+      <p>H</p>
+      <p>I</p>
+      <p>J</p>
+    </div>
+
+    <div class="grid-with-col-numbers">
+      <div class="repere_colonne">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+      </div>
+      <div class="container text-center">
+        <?php
+        for ($i = 0; $i < count($rows); $i += $colsPerRow) {
+          echo '<div class="row g-0 grid-row">';
+          for ($j = 0; $j < $colsPerRow; $j++) {
+            if (isset($rows[$i + $j])) {
+              $case = $rows[$i + $j];
+              $color = $case['checked'] == 1 ? 'blue' : 'grey';
+
+              if ($case['checked'] == 1 && $case['boat'] > 0) {
+                $color = 'red';
+                $count++;
+                if ($count == $totalNeededHits) {
+                  include(__DIR__ . '/../scripts/win.php');
+
+                }
+              }
+
+              $idgrid = $case['idgrid'];
+
+              $isLastSunkCell = isset($_SESSION['last_sunk_cell']) && $_SESSION['last_sunk_cell'] == $idgrid;
+
+              echo '<div class="col grid-col">';
+              echo '<form method="post" action="/battle_naval_v3/htdocs/scripts/click_case.php">';
+
+              if ($isLastSunkCell) {
+                echo '<button type="submit" name="cell" class="btn" value="' . $idgrid . '" style="background-color:black;">💥</button>';
+              } else {
+                echo '<button type="submit" name="cell" class="btn" value="' . $idgrid . '" style="background-color:' . $color . ';"></button>';
+              }
+
+              echo '</form>';
+              echo '</div>';
+            }
           }
-
-          $idgrid = $case['idgrid'];
-          $isChecked = $case['checked'] == 1;
-
-          echo '<div class="col">';
-          echo '<form method="post" action="/battle_naval_v3/htdocs/scripts/click_case.php">';
-          
-          $disabled = $isChecked ? 'disabled' : '';
-          echo '<button type="submit" name="cell" value="' . $idgrid . '" style="width:30px; height:30px; background-color:' . $color . ';' . $disabled . '>;"></button>';
-          echo '</form>';
           echo '</div>';
         }
-      }
-      echo '</div>';
-    }
-    ?>
+        unset($_SESSION['last_sunk_cell']);
+        ?>
+      </div>
+    </div>
+  </div>
+
+  <div class="messages">
+    <article>
+      <h2 style="color:white; margin-bottom:2%; background-color:blue;">Déroulé de la bataille :</h2>
+      <h3 style="text-align:center;"><? echo $_SESSION['message'] ?></h3>
+    </article>
+    <article>
+      <?
+      $msgAdverseQuery = "
+          SELECT msg
+          FROM etat_jeu
+          WHERE joueur != :joueur";
+
+      $msgAdverseReq = $sql->db->prepare($msgAdverseQuery);
+      $msgAdverseReq->execute(["joueur" => $player]);
+
+      $_SESSION['messageAdversaire'] = $msgAdverseReq->fetchColumn();?>
+      <h2 style="color:white; margin-top:5%; margin-bottom:2%;background-color:crimson;">Actions de l'adversaire :</h2>
+      <h3 style="text-align:center;"><? echo $_SESSION['messageAdversaire'] ?></h3>
+    </article>
+  </div>
+  <div class="score">
+    <h2 style="color:black;">Scores : </h2>
+        <? include(__DIR__ . '/../scripts/score.php');?>
   </div>
   <form method="post" action="/battle_naval_v3/htdocs/scripts/reset_total.php">
     <button type="submit" name="reset_total">
       ❌ Fin de partie (RESET)
     </button>
   </form>
+
 </body>
 
 </html>
