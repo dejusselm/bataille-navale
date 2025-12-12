@@ -11,6 +11,14 @@ if (empty($_SESSION['winDone'])) {
     $winReq = $sql->db->prepare($winQuery);
     $winReq->execute(['joueur' => $winner]);
 
+    $msgQuery = "
+            UPDATE etat_jeu
+            SET msg = :msg
+            WHERE joueur = :joueur";
+
+    $msgReq = $sql->db->prepare($msgQuery);
+    $msgReq->execute(["msg"=> "Fin de partie : tous les bateaux ont été coulés !", "joueur"=>$player]);
+
     $_SESSION['winDone'] = true;
 }
 ?>

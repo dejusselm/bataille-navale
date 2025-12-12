@@ -137,6 +137,10 @@ $count = 0;
       <h3 style="text-align:center;"><? echo $_SESSION['messageAdversaire'] ?></h3>
     </article>
   </div>
+  <div class="score">
+    <h2 style="color:black;">Scores : </h2>
+        <? include(__DIR__ . '/../scripts/score.php');?>
+  </div>
   <form method="post" action="/battle_naval_v3/htdocs/scripts/reset_total.php">
     <button type="submit" name="reset_total">
       ❌ Fin de partie (RESET)
