@@ -32,7 +32,6 @@ if (isset($_POST["cell"])) {
   $req = $sql->db->prepare($updateCase);
   $req->execute(['cell' => $cell]);
 
-
   $boatId = $case['boat'];
   if ($boatId > 0) { // si il s'agit d'un bateau
     $hurtQuery = "
@@ -60,16 +59,30 @@ if (isset($_POST["cell"])) {
       $sinkReq = $sql->db->prepare($sinkQuery);
       $sinkReq->execute(['id' => $boatId]);
 
-      $_SESSION['message'] = " 💥 Bateau coulé : " . $boatInfo['name']." 💥";
+      $_SESSION['message'] = " 💥 Bateau coulé : " . $boatInfo['name'] . " 💥";
       $_SESSION['last_sunk_cell'] = $cell;
     } else {
       $_SESSION['message'] = " 🎯 Touché ! 🎯";
     }
-  } else {
-    $_SESSION['message'] = "Raté !";
   }
 
-  header("Location: ../index.php");
-  exit;
+
+
+else {
+  $_SESSION['message'] = "Raté !";
 }
+}
+
+$msgQuery = "
+          UPDATE etat_jeu
+          SET msg = :msg
+          WHERE joueur = :joueur";
+
+$msgReq = $sql->db->prepare($msgQuery);
+$msgReq->execute(["msg"=> $_SESSION['message'], "joueur"=>$player]);
+
+
+header("Location: ../index.php");
+exit;
+
 ?>

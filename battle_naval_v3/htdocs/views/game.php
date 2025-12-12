@@ -24,7 +24,7 @@ $rows = $req->fetchAll(PDO::FETCH_ASSOC);
 $countQuery = "SELECT SUM(type)FROM bateaux";
 $countReq = $sql->db->prepare($countQuery);
 $countReq->execute();
-$totalNeededHits = round((int)$countReq->fetchColumn()/2);
+$totalNeededHits = round((int) $countReq->fetchColumn() / 2);
 
 $colsPerRow = 10;
 $count = 0;
@@ -87,7 +87,8 @@ $count = 0;
                 $color = 'red';
                 $count++;
                 if ($count == $totalNeededHits) {
-                  $_SESSION['message']="Vous avez gagné !<br> <br> Tous les bateaux adverses <br> ont été coulé !";
+                  include(__DIR__ . '/../scripts/win.php');
+
                 }
               }
 
@@ -116,9 +117,25 @@ $count = 0;
     </div>
   </div>
 
-  <div >
-  <h2 style="color:black;">Déroulé de la bataille :</h2>
-  <h3 style="text-align:center;"><?echo $_SESSION['message']?></h3>
+  <div class="messages">
+    <article>
+      <h2 style="color:white; margin-bottom:2%; background-color:blue;">Déroulé de la bataille :</h2>
+      <h3 style="text-align:center;"><? echo $_SESSION['message'] ?></h3>
+    </article>
+    <article>
+      <?
+      $msgAdverseQuery = "
+          SELECT msg
+          FROM etat_jeu
+          WHERE joueur != :joueur";
+
+      $msgAdverseReq = $sql->db->prepare($msgAdverseQuery);
+      $msgAdverseReq->execute(["joueur" => $player]);
+
+      $_SESSION['messageAdversaire'] = $msgAdverseReq->fetchColumn();?>
+      <h2 style="color:white; margin-top:5%; margin-bottom:2%;background-color:crimson;">Actions de l'adversaire :</h2>
+      <h3 style="text-align:center;"><? echo $_SESSION['messageAdversaire'] ?></h3>
+    </article>
   </div>
   <form method="post" action="/battle_naval_v3/htdocs/scripts/reset_total.php">
     <button type="submit" name="reset_total">

@@ -15,6 +15,13 @@ if (isset($_POST["reset_total"])) {
     $tableQuery = "UPDATE $table SET checked = 0 WHERE checked = 1";
     $tableReq = $connection->db->prepare($tableQuery);
     $tableReq->execute();
+
+    $msgQuery = "
+          UPDATE etat_jeu
+          SET msg = ''";
+
+    $msgReq = $connection->db->prepare($msgQuery);
+    $msgReq->execute();
   }
 
   $boats = 'bateaux';
@@ -25,6 +32,9 @@ if (isset($_POST["reset_total"])) {
                 SET nbCheckedCase = 0;";
   $boatsReq = $connection->db->prepare($boatsQuery);
   $boatsReq->execute();
+
+  unset($_SESSION['win_done']);
+  unset($_SESSION['message']);
 
   header("Location: ../index.php");
   exit;
